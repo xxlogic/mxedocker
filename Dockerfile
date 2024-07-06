@@ -50,7 +50,7 @@ RUN apt update   && \
 RUN gem install asciidoctor-pdf	
 RUN git clone https://github.com/mxe/mxe.git
 RUN cd mxe && \
-    make cc glib libzip libusb1 libftdi1 hidapi glibmm \
+    make -j4 cc glib libzip libusb1 libftdi1 hidapi glibmm \
     qtbase qtimageformats qtsvg qttranslations boost check gendef libieee1284 \
     && rm -fr .git log .ccache pkg
     
