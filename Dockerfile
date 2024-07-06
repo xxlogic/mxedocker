@@ -5,7 +5,7 @@ WORKDIR /WORK
 RUN apt update   && \
   apt  install -y --no-install-recommends\
     software-properties-common \
-    lsb-release apt-get install \
+    lsb-release \
     autoconf \
     automake \
     autopoint \
