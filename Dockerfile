@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
-RUN mkdir -p /WORK
-WORKDIR /WORK
+RUN mkdir -p /opt
+WORKDIR /opt
 
 RUN apt update   && \
   apt  install -y --no-install-recommends\
@@ -44,11 +44,16 @@ RUN apt update   && \
     sqlite3 \
     unzip \
     wget \
-    xz-utils
+    xz-utils 
+    
 
-RUN	gem install asciidoctor-pdf	
+RUN gem install asciidoctor-pdf	
 RUN git clone https://github.com/mxe/mxe.git
-RUN cd mxe && make cc glib libzip libusb1 libftdi1 hidapi glibmm qtbase qtimageformats qtsvg qttranslations boost check gendef libieee1284
+RUN cd mxe && \
+    make cc glib libzip libusb1 libftdi1 hidapi glibmm \
+    qtbase qtimageformats qtsvg qttranslations boost check gendef libieee1284 \
+    && rm -fr .git log .ccache pkg
+    
 #RUN apt-key adv \
 #    --keyserver keyserver.ubuntu.com \
 #    --recv-keys 86B72ED9 
