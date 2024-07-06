@@ -44,7 +44,9 @@ RUN apt update   && \
     sqlite3 \
     unzip \
     wget \
-    xz-utils 
+    xz-utils \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
     
 
 RUN gem install asciidoctor-pdf	
