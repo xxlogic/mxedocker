@@ -47,6 +47,8 @@ RUN apt update   && \
     xz-utils
 
 RUN	gem install asciidoctor-pdf	
+RUN git clone https://github.com/mxe/mxe.git
+RUN cd mxe && make cc glib libzip libusb1 libftdi1 hidapi glibmm qtbase qtimageformats qtsvg qttranslations boost check gendef libieee1284
 #RUN apt-key adv \
 #    --keyserver keyserver.ubuntu.com \
 #    --recv-keys 86B72ED9 
