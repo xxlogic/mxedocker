@@ -45,6 +45,7 @@ RUN apt update   && \
     unzip \
     wget \
     xz-utils \
+    dirmngr  gpg-agent   nsis  doxygen rubygems \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
     
